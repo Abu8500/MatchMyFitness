@@ -173,11 +173,21 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
-
+        [TestMethod]
+        public void ValidMethodOk()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //string variable to store error message
+            String Error = "";
+            //invoke the method
+            Error = AnOrder.Valid(OrderDate, ShippingInfo);
+            //test to see that the results are correct
+            Assert.AreEqual(Error, "");
+        }
 
 
     }
-
 }
 
 

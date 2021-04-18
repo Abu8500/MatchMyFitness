@@ -25,7 +25,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //navigate user to viewer page
         Response.Redirect("OrdersViewer.aspx");
 
-        
+
         //create some test data to assign to the property
         AnOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
         //store the address in session
@@ -33,7 +33,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //navigate user to viewer page
         Response.Redirect("OrdersViewer.aspx");
 
-       
+
         //create some test data to assign to the property
         AnOrder.Availability = Convert.ToBoolean(chkAvailability.Text);
         //store the address in session
@@ -41,36 +41,44 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //navigate user to viewer page
         Response.Redirect("OrdersViewer.aspx");
 
-        
+
         //create some test data to assign to the property
         AnOrder.OrderId = Convert.ToInt32(txtOrderId.Text);
         //store the address in session
         Session["AnOrder"] = AnOrder;
         //navigate user to viewer page
         Response.Redirect("OrdersViewer.aspx");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-}
+
+        protected void btnFind_Click(object sender, EventArgs e)
+        {
+            //create an instance of the order class
+            clsOrders AnOrder = new clsOrders();
+            //variable to store the primary key
+            Int32 OrderId;
+            // variable to store the result of the find operation
+            Boolean Found = false;
+            //get the primary key entered by the user
+            OrderId = Convert.ToInt32(txtOrderId.Text);
+            //find the record
+            Found = AnOrder.Find(OrderId);
+            //if found
+            if (Found == true)
+            {
+                //display the values of the properties in the form
+
+                txtOrderDate.Text = AnOrder.OrderDate.ToString();
+                txtShippingInfo.Text = AnOrder.ShippingInfo;
+             }
+
+
+
+
+
+        } } 
+
+
+
+
+
+     
