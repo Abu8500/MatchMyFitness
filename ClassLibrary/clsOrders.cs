@@ -31,7 +31,7 @@ namespace ClassLibrary
 
 
             }
-           }
+        }
         public bool Availability {
 
             get
@@ -44,7 +44,7 @@ namespace ClassLibrary
                 //set the private data
                 mAvailability = value;
             }
-             }
+        }
         public DateTime OrderDate {
 
             get
@@ -74,11 +74,11 @@ namespace ClassLibrary
             set
             {
                 //set the private data
-                mShippingInfo = value; 
+                mShippingInfo = value;
             }
 
 
-            }
+        }
 
         public bool Find(int OrderId)
         {
@@ -89,7 +89,7 @@ namespace ClassLibrary
             //execute the stored procedure
             DB.Execute("sproc_tblOrder_FIlterByOrderId");
             //if one record is found (there should be either one or zero)
-            if(DB.Count == 1)
+            if (DB.Count == 1)
             {
                 //copy the data from the database to the private data members
                 mOrderId = Convert.ToInt32(DB.DataTable.Rows[0]["OrderId"]);
@@ -99,19 +99,22 @@ namespace ClassLibrary
 
             }
 
-
-
-
-
-
-
             //set the private data member to the test data value
             mOrderId = 1;
-            mAvailability = true; 
+            mAvailability = true;
             mOrderDate = Convert.ToDateTime("16/9/2015");
-            mShippingInfo = "test Shipping"; 
+            mShippingInfo = "test Shipping";
             //return true
             return true;
+        }
+
+        //function for the public validation method
+        //this function accepts 2 parameters, returns a string containing any error message, if no errors then blank string returned
+        
+
+        public string Valid(string OrderDate, string ShippingInfo)
+        {
+            return "";
         }
     }
 }
