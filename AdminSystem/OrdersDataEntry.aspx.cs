@@ -27,7 +27,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         
         //create some test data to assign to the property
-        AnOrder.OrderDate = DateTime.Parse(txtOrderDate.Text);
+        AnOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
         //store the address in session
         Session["AnOrder"] = AnOrder;
         //navigate user to viewer page
@@ -35,7 +35,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
        
         //create some test data to assign to the property
-        AnOrder.Availability = Boolean.Parse(chkAvailability.Text);
+        AnOrder.Availability = Convert.ToBoolean(chkAvailability.Text);
         //store the address in session
         Session["AnOrder"] = AnOrder;
         //navigate user to viewer page
@@ -43,7 +43,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         
         //create some test data to assign to the property
-        AnOrder.OrderId = int.Parse(txtOrderId.Text);
+        AnOrder.OrderId = Convert.ToInt32(txtOrderId.Text);
         //store the address in session
         Session["AnOrder"] = AnOrder;
         //navigate user to viewer page
