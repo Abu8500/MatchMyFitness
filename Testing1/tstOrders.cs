@@ -75,9 +75,9 @@ namespace Testing1
             //boolean variable to store the results of validation
             Boolean Found = false;
             //create some test data
-            Int32 OrdersId = 1;
+            Int32 OrderId = 1;
             //invoke the method
-            Found = AnOrder.Find(OrdersId);
+            Found = AnOrder.Find(OrderId);
             //test to see the result is true
             Assert.IsTrue(Found);
         }
