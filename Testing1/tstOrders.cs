@@ -8,7 +8,8 @@ namespace Testing1
     public class tstOrders
     {
         [TestMethod]
-        public void InstanceOK() {
+        public void InstanceOK()
+        {
             //created an instance of the class
             clsOrders AnOrder = new clsOrders();
             // test to make sure it exists
@@ -66,17 +67,129 @@ namespace Testing1
             Assert.AreEqual(AnOrder.ShippingInfo, TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //boolean variable to store the results of validation
+            Boolean Found = false;
+            //create some test data
+            Int32 OrdersId = 1;
+            //invoke the method
+            Found = AnOrder.Find(OrdersId);
+            //test to see the result is true
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestOrderIdFound()
+        {
+            //create an instance of the class
+            clsOrders AnOrder = new clsOrders();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is Ok (assuming it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderId = 1;
+            //Invoke the method
+            Found = AnOrder.Find(OrderId);
+            //check the orderid
+            if (AnOrder.OrderId != 1)
+            {
+                OK = false;
+            }
+            //test to see the result is correct
+            Assert.IsTrue(OK);
 
 
 
+        }
+
+        [TestMethod]
+        public void TestAvailabilityFound()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderId = 1;
+            //invoke the method
+            Found = AnOrder.Find(OrderId);
+            //check the property
+            if (AnOrder.Availability != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
 
 
+        [TestMethod]
+        public void TestOrderDateFound()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderId = 1;
+            //invoke the method
+            Found = AnOrder.Find(OrderId);
+            //check the property
+            if (AnOrder.OrderDate != Convert.ToDateTime("16/09/2015"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
 
-
+        [TestMethod]
+        public void TestShippingInfoFound()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderId = 1;
+            //invoke the method
+            Found = AnOrder.Find(OrderId);
+            //check the property
+            if (AnOrder.ShippingInfo != "test Shipping")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
 
 
 
 
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+    
+
 
