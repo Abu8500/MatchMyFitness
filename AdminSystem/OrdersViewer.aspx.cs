@@ -17,6 +17,24 @@ public partial class _1Viewer : System.Web.UI.Page
         //display the shipping info for this entry
         Response.Write(AnOrder.ShippingInfo);
 
+        
+        //get the data from session object
+        AnOrder = (clsOrders)Session["AnOrder"];
+        //display the shipping info for this entry
+        Response.Write(AnOrder.OrderDate);
+
+       
+        //get the data from session object
+        AnOrder = (clsOrders)Session["AnOrder"];
+        //display the shipping info for this entry
+        Response.Write(AnOrder.Availability);
+
+       
+        //get the data from session object
+        AnOrder = (clsOrders)Session["AnOrder"];
+        //display the shipping info for this entry
+        Response.Write(AnOrder.OrderId);
+
 
 
 

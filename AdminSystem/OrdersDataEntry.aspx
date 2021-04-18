@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Label ID="OrderId" runat="server" Text="Order Number"></asp:Label>
+        <asp:Label ID="OrderId" runat="server" Text="OrderId"></asp:Label>
         <asp:TextBox ID="txtOrderId" runat="server" Width="209px"></asp:TextBox>
         <p>
             <asp:CheckBox ID="chkAvailability" runat="server" Text="Availability" />

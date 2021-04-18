@@ -16,8 +16,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOk_Click(object sender, EventArgs e)
     {
 
-        
-        
         //create a new instance of clsOrders
         clsOrders AnOrder = new clsOrders();
         //create some test data to assign to the property
@@ -26,6 +24,52 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["AnOrder"] = AnOrder;
         //navigate user to viewer page
         Response.Redirect("OrdersViewer.aspx");
+
+        
+        //create some test data to assign to the property
+        AnOrder.OrderDate = DateTime.Parse(txtOrderDate.Text);
+        //store the address in session
+        Session["AnOrder"] = AnOrder;
+        //navigate user to viewer page
+        Response.Redirect("OrdersViewer.aspx");
+
+       
+        //create some test data to assign to the property
+        AnOrder.Availability = Boolean.Parse(chkAvailability.Text);
+        //store the address in session
+        Session["AnOrder"] = AnOrder;
+        //navigate user to viewer page
+        Response.Redirect("OrdersViewer.aspx");
+
+        
+        //create some test data to assign to the property
+        AnOrder.OrderId = int.Parse(txtOrderId.Text);
+        //store the address in session
+        Session["AnOrder"] = AnOrder;
+        //navigate user to viewer page
+        Response.Redirect("OrdersViewer.aspx");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
