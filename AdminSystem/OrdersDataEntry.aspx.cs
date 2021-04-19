@@ -18,36 +18,32 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         //create a new instance of clsOrders
         clsOrders AnOrder = new clsOrders();
-        //create some test data to assign to the property
-        AnOrder.ShippingInfo = txtShippingInfo.Text;
-        //store the address in session
-        Session["AnOrder"] = AnOrder;
-        //navigate user to viewer page
-        Response.Redirect("OrdersViewer.aspx");
-
-
-        //create some test data to assign to the property
-        AnOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
-        //store the address in session
-        Session["AnOrder"] = AnOrder;
-        //navigate user to viewer page
-        Response.Redirect("OrdersViewer.aspx");
-
-
-        //create some test data to assign to the property
-        AnOrder.Availability = Convert.ToBoolean(chkAvailability.Text);
-        //store the address in session
-        Session["AnOrder"] = AnOrder;
-        //navigate user to viewer page
-        Response.Redirect("OrdersViewer.aspx");
-
-
-        //create some test data to assign to the property
-        AnOrder.OrderId = Convert.ToInt32(txtOrderId.Text);
-        //store the address in session
-        Session["AnOrder"] = AnOrder;
-        //navigate user to viewer page
-        Response.Redirect("OrdersViewer.aspx");
+        //capture OrderDate
+        string OrderDate = txtOrderDate.Text;
+        //capture Shippinginfo
+        string ShippingInfo = txtShippingInfo.Text;
+        //variable to store error messages
+        string Error = "";
+        //validate the data
+        Error = AnOrder.Valid(OrderDate, ShippingInfo);
+        if (Error == "")
+        {
+            //capture the Orderdate
+            AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
+            //capture the shipping info
+            AnOrder.ShippingInfo = ShippingInfo;
+            //store the orderid in the Orders in the session object
+            Session["AnOrder"] = AnOrder;
+            //redirect to the viewer page
+            Response.Write("Ordersviewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
+        
+        
     }
 
         protected void btnFind_Click(object sender, EventArgs e)

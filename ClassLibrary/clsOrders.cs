@@ -110,11 +110,64 @@ namespace ClassLibrary
 
         //function for the public validation method
         //this function accepts 2 parameters, returns a string containing any error message, if no errors then blank string returned
-        
+
 
         public string Valid(string OrderDate, string ShippingInfo)
         {
-            return "";
+            //create string variable to store error
+            String Error = "";
+            //create a temp variable to store date values
+            DateTime DateTemp;
+
+
+            try
+            {
+                //copy the OrderDate value to the datetemp variable
+                DateTemp = Convert.ToDateTime(OrderDate);
+                //check to see if date is less than todays
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past: ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record error
+                    Error = Error + "The date cannot be in the future: ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date is not valid: ";
+            }
+            //is the shipping info blank
+            if (ShippingInfo.Length == 0)
+            {
+                //record error
+                Error = Error + "The ShippingInfo must not be blank";
+            }
+            //if the shippinginfo is too long
+            if(ShippingInfo.Length > 15)
+            {
+                //record the error
+                Error = Error + "The Shipping info must be 15 character's or less";
+            }
+            // if shippinginfo too short
+            if(ShippingInfo.Length < 3)
+            {
+                //record the error
+                Error = Error + "The shipping info is too short, please add more character's";
+            }
+
+
+            
+
+            return Error;
         }
+        
+
+
     }
 }
