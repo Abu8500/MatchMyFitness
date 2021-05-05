@@ -54,12 +54,32 @@ namespace ClassLibrary
             //var for the index
             Int32 Index = 0;
             //var to store the record count
-            Int32 RecordCount = 0
+            Int32 RecordCount = 0;
             //object for the data connection
-            clsOrdersCollection DB = new clsOrdersCollection();
+            clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
-            DB.Execute("sproc_tblOrders_SelectAll");
+            DB.Execute("sproc_tblOrder_SelectAll");
+            //get the count of records
+            RecordCount = DB.Count;
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank order
+                clsOrders AnOrder = new clsOrders();
+                //read in the fields
+                AnOrder.Availability = Convert.ToBoolean(DB.DataTable.Rows[Index]["Availability"]);
+                AnOrder.OrderId = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderId"]);
+                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                AnOrder.ShippingInfo = Convert.ToString(DB.DataTable.Rows[Index]["Shippinginfo"]);
+                AnOrder.Availability = Convert.ToBoolean(DB.DataTable.Rows[Index]["Availability"]);
+                //add the record to the private data member
+                mOrderList.Add(AnOrder);
+                //print at the next record
+                Index++;
+                
 
+
+            }
 
         }
       
