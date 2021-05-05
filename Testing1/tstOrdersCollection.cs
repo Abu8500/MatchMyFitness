@@ -43,19 +43,7 @@ namespace Testing1
 
         }
 
-        [TestMethod]
-        public void CountOrderOK()
-        {
-            //create an instance of the class
-            clsOrdersCollection AllOrders = new clsOrdersCollection();
-            //create some test data
-            Int32 someCount = 2;
-            //assign the data to the propertu
-            AllOrders.Count = someCount;
-            //test to see the two values are the same
-            Assert.AreEqual(AllOrders.Count, someCount);
-        }
-
+        
 
         [TestMethod]
         public void ThisOrderOK()
@@ -98,15 +86,7 @@ namespace Testing1
             Assert.AreEqual(AllOrders.Count, TestList.Count);
 
         }
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            //create an instance
-            clsOrdersCollection AllOrders = new clsOrdersCollection();
-            //test to see the two values are the same
-            Assert.AreEqual(AllOrders.Count, 2);
-
-        }
+        
 
 
 
